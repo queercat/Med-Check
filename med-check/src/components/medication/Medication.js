@@ -1,3 +1,4 @@
+import './medication.css'
 import {useState, useEffect} from 'react';
 
 function Medication({name}) {
@@ -11,8 +12,11 @@ function Medication({name}) {
 
     return (
     <div className="medication">
-        <header>{name}</header>
-        {medicationImage && medicationImage.map((med, index) => <img key={index} src={med}/>)}
+        <a href="#">
+            <h1>{name}</h1>
+            {medicationImage && medicationImage.map((med, index) => <img className="img" key={index} src={med}/>)}
+            <h1>You have <span className="succ">NOT</span> taken</h1>
+        </a>
     </div>
     );
 }

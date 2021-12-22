@@ -1,13 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
 
 import Medication from './components/medication/Medication';
+import MedCard from './components/medcard/Medcard';
+import LoadingScreen from './components/loading/Loading';
+
+import {useState, useEffect} from 'react';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 2000);
+  }, []);
+
+  const offSpinner = () => {
+    const spinner = document.getElementById('spinner-container');
+    spinner.style = "opacity: 0; transform: translate(0%, -10%)"
+  }
 
   return (
     <div className="App">
-      <Medication name="Spiro"/>
+      <LoadingScreen/>
+      
+      <MedCard>
+        <Medication name="Spiro"/>
+      </MedCard>
+
+      {!loading ? (
+        offSpinner()
+      ) : (<></>)}
     </div>
   );
 }

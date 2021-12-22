@@ -10,9 +10,8 @@ function Medication({name, url}) {
     }, []);
 
     useEffect(() => {
-        // see if a cookie exists for our medication, if not create one.
         let cookie = document.cookie;
-        
+
         if (!cookie.includes(name)) {
             cookie += name + '=false:'
         }
@@ -23,13 +22,12 @@ function Medication({name, url}) {
             isTaken = (cookie.split(':')
             .find(row => row.startsWith(name + '='))
             .split('=')[1]) === 'true';
-
-            console.log(isTaken);
         }
 
         setHasTaken(isTaken);
 
         document.cookie = cookie;
+        console.log(document.cookie);
     }, []);
 
     const flipTaken = () => {

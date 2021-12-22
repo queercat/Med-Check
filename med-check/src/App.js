@@ -1,6 +1,5 @@
 import './App.css';
 
-import Medication from './components/medication/Medication';
 import MedCard from './components/medcard/Medcard';
 import LoadingScreen from './components/loading/Loading';
 
@@ -10,7 +9,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 2000);
+    setTimeout(() => setLoading(false), 1200);
   }, []);
 
   const destroySpinner = () => {

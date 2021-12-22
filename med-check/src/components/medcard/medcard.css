@@ -23,7 +23,7 @@
     }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
     .medcard {
         width: 50%;
         height: 40%;
@@ -33,6 +33,6 @@
 @media only screen and (max-width: 900px) {
     .medcard {
         width: 50%;
-        height: 85%;
+        height: 50%;
     }
 }

@@ -13,9 +13,16 @@ function App() {
     setTimeout(() => setLoading(false), 2000);
   }, []);
 
+  const destroySpinner = () => {
+    const spinner = document.getElementById('spinner-container');
+    spinner.remove();
+  }
+
   const offSpinner = () => {
     const spinner = document.getElementById('spinner-container');
     spinner.style = "opacity: 0; transform: translate(0%, -10%)"
+
+    setTimeout(() => destroySpinner(), 300);
   }
 
   return (

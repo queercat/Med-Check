@@ -1,10 +1,15 @@
 import './medcard.css'
+import Medication from '../medication/Medication';
 
-function MedCard({children}) {
+function MedCard({medications, children}) {
     return (
-        <div className="medcard">
-            {children}
-        </div>
+            <>
+            {medications && medications.map((med, index) => (
+                <div className="medcard">
+                    <Medication key={index} name={med[0]} url={med[1]}></Medication>
+                </div>
+            ))}
+            </>
     )
 }
 

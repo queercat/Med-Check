@@ -16,6 +16,10 @@
     transform: scale(1.1);
 }
 
-.succ {
+.fail {
     color: red;
+}
+
+.success {
+    color: #4BB543;
 }

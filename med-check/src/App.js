@@ -29,9 +29,7 @@ function App() {
     <div className="App">
       <LoadingScreen/>
       
-      <MedCard>
-        <Medication name="Spiro"/>
-      </MedCard>
+      <MedCard medications={[["Spiro", "https://img.medscapestatic.com/pi/features/drugdirectory/octupdate/MUA03290.jpg?output-quality=50"], ["Estrogen", "https://www.drugs.com/images/pills/nlm/005550886.jpg"]]}/>
 
       {!loading ? (
         offSpinner()

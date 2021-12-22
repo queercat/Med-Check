@@ -12,15 +12,23 @@ function Medication({name, url}) {
     useEffect(() => {
         // see if a cookie exists for our medication, if not create one.
         let cookie = document.cookie;
+        
         if (!cookie.includes(name)) {
             cookie += name + '=false:'
         }
 
-        let isTaken = (cookie.split(':')
-        .find(row => row.startsWith(name + '='))
-        .split('=')[1]) === 'true';
+        let isTaken = false;
+
+        if (cookie.includes(name)) {
+            isTaken = (cookie.split(':')
+            .find(row => row.startsWith(name + '='))
+            .split('=')[1]) === 'true';
+
+            console.log(isTaken);
+        }
 
         setHasTaken(isTaken);
+
         document.cookie = cookie;
     }, []);
 
@@ -44,7 +52,7 @@ function Medication({name, url}) {
         <a href="#" onClick={flipTaken}>
             <h1>{name}</h1>
             {medicationImage && medicationImage.map((med, index) => <img className="img" key={index} src={med}/>)}
-            {hasTaken ? (
+            {!hasTaken ? (
                 <h1>You have <span className="fail">NOT</span> taken</h1>
             ) : (
                 <h1>You <span className="success">HAVE</span> taken</h1>

@@ -15,7 +15,7 @@ function App() {
 
   const destroySpinner = () => {
     const spinner = document.getElementById('spinner-container');
-    spinner.remove();
+    spinner.style = "display: none";
   }
 
   const offSpinner = () => {
